@@ -158,6 +158,7 @@ Madalqiroat1
     }
 
     function sendToMessenger() {
+  console.log("Функция sendToMessenger вызвана");
   const name = document.getElementById('username').value || "Аноним";
   const payload = {
     username: name,
@@ -166,13 +167,21 @@ Madalqiroat1
 
   fetch('https://script.google.com/macros/s/AKfycbw5mZVbH59LWOEgSZYRg3q_wvqHuec90-Rf2lKIKt855nnlRPoIuWxItYgJLP9LEI_o/exec', {
     method: 'POST',
+    mode: 'no-cors', // Обходим проверку CORS
     body: JSON.stringify(payload),
     headers: {
       'Content-Type': 'application/json'
     }
   }).then(response => {
-    window.open('https://t.me/urokmabdalqiroat', '_blank');
+    console.log("Запрос отправлен (opaque response)");
+    document.getElementById('testsContainer').innerHTML = `
+      <div class="test-container active">
+        <div class="result correct">Данные успешно отправлены!</div>
+        <a href="https://t.me/urokmabdalqiroat" target="_blank" class="telegram-btn">Войти в группу Telegram</a>
+      </div>
+    `;
   }).catch(error => {
+    console.error("Ошибка при отправке:", error);
     alert("Ошибка при отправке: " + error);
   });
 }
