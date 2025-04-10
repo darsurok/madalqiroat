@@ -171,7 +171,7 @@ Madalqiroat1
       'Content-Type': 'application/json'
     }
   }).then(response => {
-    window.open('https://t.me/+xbhYimraRHsxZGQy', '_blank');
+    window.open('https://t.me/urokmabdalqiroat', '_blank');
   }).catch(error => {
     alert("Ошибка при отправке: " + error);
   });
