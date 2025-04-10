@@ -166,20 +166,12 @@ Madalqiroat1
 
   fetch('https://script.google.com/macros/s/AKfycbw5mZVbH59LWOEgSZYRg3q_wvqHuec90-Rf2lKIKt855nnlRPoIuWxItYgJLP9LEI_o/exec', {
     method: 'POST',
-    mode: 'no-cors',
     body: JSON.stringify(payload),
     headers: {
       'Content-Type': 'application/json'
     }
   }).then(response => {
-    // Response здесь будет opaque – нельзя его проанализировать,
-    // но можно считать, что запрос прошёл
-    document.getElementById('testsContainer').innerHTML = `
-      <div class="test-container active">
-        <div class="result correct">Данные успешно отправлены!</div>
-        <a href="https://t.me/urokmabdalqiroat" target="_blank" class="telegram-btn">Войти в группу Telegram</a>
-      </div>
-    `;
+    window.open('https://t.me/+xbhYimraRHsxZGQy', '_blank');
   }).catch(error => {
     alert("Ошибка при отправке: " + error);
   });
