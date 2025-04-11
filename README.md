@@ -165,7 +165,7 @@ Madalqiroat1
     message: "Пользователь прошёл все тесты!"
   };
 
-  fetch('https://script.google.com/macros/s/AKfycbyxQj-ePXwS5yh--vzt8Fob5NP6-QO0UoLCaHvk1dC6osnBDyNhVyhnQ-vtMUEMvIyN/exec', {
+  fetch('https://script.google.com/macros/s/AKfycbzbE-SwzZF3e2yJfAFFt0ucks_UMoUcwve64w42Gcey32-JXTp4YwK2mpJIyAqygyGG/exec', {
     method: 'POST',
     mode: 'no-cors', // Обходим проверку CORS
     body: JSON.stringify(payload),
