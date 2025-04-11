@@ -4,7 +4,7 @@ Madalqiroat1
 
 <script>
   function sendMessage() {
-    const url = 'ВСТАВЬ_ТУТ_URL_ТВОЕГО_APPS_SCRIPT';
+    const url = 'https://script.google.com/macros/s/AKfycbw5mZVbH59LWOEgSZYRg3q_wvqHuec90-Rf2lKIKt855nnlRPoIuWxItYgJLP9LEI_o/exec';
 
     fetch(url, {
       method: 'POST',
