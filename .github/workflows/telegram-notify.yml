@@ -1,23 +1,9 @@
-name: Notify Telegram
-
-on:
-  push:
-    branches:
-      - main  # можно изменить на нужную тебе ветку
-
-jobs:
-  notify:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Отправка уведомления в Telegram
-        run: |
-          MESSAGE="✅ Новый push в ${{ github.repository }} от ${{ github.actor }}\n\
-Ветка: \${{ github.ref }}\\n\
-Комментарий: ${{ github.event.head_commit.message }}\n\
-[Посмотреть изменения](${{ github.event.head_commit.url }})"
-          
-          curl -s -X POST https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage \
-            -d chat_id=${{ secrets.TELEGRAM_CHAT_ID }} \
-            -d text="$MESSAGE" \
-            -d parse_mode=Markdown
+- name: Send via curl
+  run: |
+    curl -X POST \
+      -H "Content-Type: application/json" \
+      -d '{
+        "chat_id": "${{ secrets.TELEGRAM_CHAT_ID }}",
+        "text": "Сообщение из GitHub: ${{ github.event.head_commit.message }}"
+      }' \
+      "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage"
