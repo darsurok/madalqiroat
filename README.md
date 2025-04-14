@@ -1,5 +1,6 @@
 # madalqiroat
 Madalqiroat1
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -160,24 +161,25 @@ Madalqiroat1
     function sendToMessenger() {
   console.log("Функция sendToMessenger вызвана");
   const name = document.getElementById('username').value || "Аноним";
+
   const payload = {
     username: name,
-    message: "Пользователь прошёл все тесты!"
+    text: `Пользователь прошёл тест!\nИмя: ${name}`,
+    channel: 'channel1' // Теперь точно пойдёт в нужный канал
   };
 
-  fetch('https://script.google.com/macros/s/AKfycbzeZacJ94s4cKOhACibHtn8ZgFKfkU9yk3RpIRvwirVWoBAFobSUBYInwtYmJKIz3MlJg/exec', {
+  fetch('https://script.google.com/macros/s/AKfycby0OilgRHRx5b5cfyR_GuOaZEWC60vi-DEPKnc44BAvISsau754mTIVl0Uq0viYZys0/exec', {
     method: 'POST',
-    mode: 'no-cors', // Обходим проверку CORS
+    mode: 'no-cors',
     body: JSON.stringify(payload),
     headers: {
       'Content-Type': 'application/json'
     }
-  }).then(response => {
-    console.log("Запрос отправлен (opaque response)");
+  }).then(() => {
     document.getElementById('testsContainer').innerHTML = `
       <div class="test-container active">
         <div class="result correct">Данные успешно отправлены!</div>
-        <a href="https://t.me/Darsqiratbot" target="_blank" class="telegram-btn">Войти в группу Telegram</a>
+        <a href="https://t.me/channel1" target="_blank" class="telegram-btn">Войти в группу Telegram</a>
       </div>
     `;
   }).catch(error => {
