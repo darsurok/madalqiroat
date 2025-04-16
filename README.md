@@ -165,7 +165,7 @@ Madalqiroat1
   const payload = {
     username: name,
     text: `Пользователь прошёл тест!\nИмя: ${name}`,
-    channel: 'channel1' // Теперь точно пойдёт в нужный канал
+    channel: 'channel4' // Теперь точно пойдёт в нужный канал
   };
 
   fetch('https://script.google.com/macros/s/AKfycbzy8MNUfFmWomeYfjaT_3hpvYZ6F0X4Zk_zI3ZxcRbhgEhqLBZRgNaaywJO_mQwOs6bjA/exec', {
@@ -179,7 +179,7 @@ Madalqiroat1
     document.getElementById('testsContainer').innerHTML = `
       <div class="test-container active">
         <div class="result correct">Данные успешно отправлены!</div>
-        <a href="https://t.me/channel1" target="_blank" class="telegram-btn">Войти в группу Telegram</a>
+        <a href="https://t.me/channel4" target="_blank" class="telegram-btn">Войти в группу Telegram</a>
       </div>
     `;
   }).catch(error => {
