@@ -168,7 +168,7 @@ Madalqiroat1
     channel: 'channel4' // Теперь точно пойдёт в нужный канал
   };
 
-  fetch('https://script.google.com/macros/s/AKfycbyq8URyT75q9JRbmAWGCNc9nFgaW6C14XMTZxq4LZBf9M2IHCZdSbRGu2locPCqH4AZGA/exec', {
+  fetch('https://script.google.com/macros/s/AKfycby36N0hfN-ZL-QVNqDSbKaVPfuKT6Nl3nyx81-oq_yYiHlrmqVqaFy1_QnciIqS5MQ/exec', {
     method: 'POST',
     mode: 'no-cors',
     body: JSON.stringify(payload),
