@@ -23,19 +23,19 @@ Madalqiroat1
     .incorrect { color: #e74c3c; }
     .progress { text-align: center; margin-bottom: 20px; font-size: 18px; }
     .name-input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 10px; font-size: 16px; }
-.telegram-btn {
-  display: inline-block;
-  background: #2196F3;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 20px;
-  text-decoration: none;
-  font-size: 16px;
-  cursor: pointer;
-  margin-top: 10px;
-}  
-</style>
+    .telegram-btn {
+      display: inline-block;
+      background: #2196F3;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+    }  
+  </style>
 </head>
 <body>
   <div class="progress">Тест 1 из 10</div>
@@ -87,6 +87,7 @@ Madalqiroat1
       const test = tests[index];
       const testHTML = `
         <div class="test-container active">
+          <input class="name-input" id="translationInput" placeholder="Перевод предложения (на другом языке)">
           <div class="sentence-box" id="sentenceArea"></div>
           <div class="words-box" id="wordsBox">
             ${test.words.map(word => `
@@ -159,35 +160,37 @@ Madalqiroat1
     }
 
     function sendToMessenger() {
-  console.log("Функция sendToMessenger вызвана");
-  const name = document.getElementById('username').value || "Аноним";
+      console.log("Функция sendToMessenger вызвана");
+      const name = document.getElementById('username').value || "Аноним";
 
-  const payload = {
-    username: name,
-    text: `Пользователь прошёл тест!\nИмя: ${name}`,
-    channel: 'channel4' // Теперь точно пойдёт в нужный канал
-  };
+      const payload = {
+        username: name,
+        text: `Пользователь прошёл тест!\nИмя: ${name}`,
+        channel: 'channel3'
+      };
 
-  fetch('https://script.google.com/macros/s/AKfycbxKtfqb4Tx0gGeDFnTtH3yA7ZoU0N_yHz6qTW066T_r9rGHsVuuYrwbhT4gkJ2B-yXK/exec', {
-    method: 'POST',
-    mode: 'no-cors',
-    body: JSON.stringify(payload),
-    headers: {
-      'Content-Type': 'application/json'
+      fetch('https://script.google.com/macros/s/AKfycbxKtfqb4Tx0gGeDFnTtH3yA7ZoU0N_yHz6qTW066T_r9rGHsVuuYrwbhT4gkJ2B-yXK/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        body: JSON.stringify(payload),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }).then(() => {
+        document.getElementById('testsContainer').innerHTML = `
+          <div class="test-container active">
+            <div class="result correct">Данные успешно отправлены!</div>
+            <a href="https://t.me/channel3" target="_blank" class="telegram-btn">Войти в группу Telegram</a>
+          </div>
+        `;
+      }).catch(error => {
+        console.error("Ошибка при отправке:", error);
+        alert("Ошибка при отправке: " + error);
+      });
     }
-  }).then(() => {
-    document.getElementById('testsContainer').innerHTML = `
-      <div class="test-container active">
-        <div class="result correct">Данные успешно отправлены!</div>
-        <a href="https://t.me/channel4" target="_blank" class="telegram-btn">Войти в группу Telegram</a>
-      </div>
-    `;
-  }).catch(error => {
-    console.error("Ошибка при отправке:", error);
-    alert("Ошибка при отправке: " + error);
-  });
-}
+
     window.onload = init;
   </script>
 </body>
 </html>
+
