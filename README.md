@@ -51,7 +51,7 @@ Madalqiroat1
           { text: "по парку", correct: 4 }
         ],
         correctSentence: "Собака бегает весело по парку",
-        translation: "The dog runs happily in the park"
+        translation: "The dog runs happily in the park The dog runs happily in the park"
       },
       {
         words: [
