@@ -183,7 +183,7 @@ Madalqiroat1
     document.getElementById('testsContainer').innerHTML = `
       <div class="test-container active">
         <div class="result correct">Данные успешно отправлены!</div>
-        <a href="https://t.me/channel3" target="_blank" class="telegram-btn">Войти в группу Telegram</a>
+        <a href="https://darsurok.github.io/madalqiroat" target="_blank" class="telegram-btn">Повторить</a>
       </div>
     `;
   }).catch(error => {
