@@ -183,7 +183,7 @@ Madalqiroat1
     document.getElementById('testsContainer').innerHTML = `
       <div class="test-container active">
         <div class="result correct">Данные успешно отправлены!</div>
-        <a href="https://darsurok.github.io/madalqiroat" target="_blank" class="telegram-btn">Повторить</a>
+        <button class="telegram-btn" onclick="location.reload()">Начать заново</button>
       </div>
     `;
   }).catch(error => {
