@@ -15,7 +15,16 @@ Madalqiroat1
     .test-container.active { display: block; }
     .words-box, .sentence-box { background: #fff; border: 2px dashed #ccc; border-radius: 10px; padding: 15px; margin-bottom: 15px; min-height: 80px; display: flex; flex-wrap: wrap; gap: 8px; flex-direction: row-reverse; /* вот эта строчка добавлена */ }
     .sentence-box { background: #e3f2fd; border: 2px solid #2196F3; }
-    .word { background: #4CAF50; color: white; padding: 8px 12px; border-radius: 15px; cursor: pointer; user-select: none; transition: all 0.2s; }
+    .word {
+  background: #4CAF50;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 15px;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s;
+  font-size: 20px; /* ⬅️ Добавлено */
+}
     .check-btn { background: #2196F3; color: white; border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer; margin: 5px 0; }
     .next-btn { background: #9C27B0; display: none; }
     .result { padding: 10px; font-weight: bold; text-align: center; }
