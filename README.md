@@ -43,66 +43,122 @@ Madalqiroat1
 
   <script>
     const tests = [
-      {
-        words: [
-          { text: "هُوَ", correct: 1 },
-          { text: "كَبِيرٌ", correct: 2 },
-          { text: "هُمْ", correct: 3 },
-          { text: "كِبَارٌ", correct: 4 }
-        ],
-        correctSentence: "هُوَ كَبِيرٌ هُمْ كِبَارٌ",
-        translation: "He is big. They are big."
-      },
-      {
-        words: [
-          { text: "أَنْتَ", correct: 1 },
-          { text: "صَغِيرٌ", correct: 2 },
-          { text: "اَنْتُمْ", correct: 3 },
-          { text: "صِغَارٌ", correct: 4 }
-        ],
-        correctSentence: "أَنْتَ صَغِيرٌ اَنْتُمْ صِغَارٌ",
-        translation: "You are small. You (plural) are small."
-      },
-      {
-        words: [
-          { text: "اَنَا", correct: 1 },
-          { text: "كَبِيرٌ", correct: 2 },
-          { text: "نَحْنُ", correct: 3 },
-          { text: "كِبَارٌ", correct: 4 }
-        ],
-        correctSentence: "اَنَا كَبِيرٌ نَحْنُ كِبَارٌ",
-        translation: "I am big. We are big."
-      },
-      {
-        words: [
-          { text: "هُوَ", correct: 1 },
-          { text: "صَغِيرٌ", correct: 2 },
-          { text: "هُمْ", correct: 3 },
-          { text: "صِغَارٌ", correct: 4 }
-        ],
-        correctSentence: "هُوَ صَغِيرٌ هُمْ صِغَارٌ",
-        translation: "He is small. They are small."
-      },
-      {
-        words: [
-          { text: "اَنْتَ", correct: 1 },
-          { text: "كَبِيرٌ", correct: 2 },
-          { text: "اَنْتُمْ", correct: 3 },
-          { text: "كِبَارٌ", correct: 4 }
-        ],
-        correctSentence: "اَنْتَ كَبِيرٌ  اَنْتُمْ كِبَارٌ",
-        translation: "You are big. You (plural) are big."
-      },
-      {
-        words: [
-          { text: "اَنَا", correct: 1 },
-          { text: "صَغِيرٌ", correct: 2 },
-          { text: "نَحْنُ", correct: 3 },
-          { text: "صِغَارٌ", correct: 4 }
-        ],
-        correctSentence: "اَنَا صَغِيرٌ نَحْنُ صِغَارٌ",
-        translation: "I am small. We are small."
-      }
+  {
+    words: [
+      { text: "مَنْ", correct: 1 },
+      { text: "هَذَا؟", correct: 2 },
+      { text: "مُعَلِّمٌ", correct: 3 },
+      { text: "مَنْ", correct: 4 },
+      { text: "هَؤُلاَءِ؟", correct: 5 },
+      { text: "مُعَلِّمُونَ", correct: 6 }
+    ],
+    correctSentence: "مَنْ هَذَا؟ - مُعَلِّمٌ. مَنْ هَؤُلاَءِ؟ - مُعَلِّمُونَ.",
+    translation: "Кто это? - Учитель. Кто это? - Учителя."
+  },
+  {
+    words: [
+      { text: "مَنْ", correct: 1 },
+      { text: "هَذِهِ؟", correct: 2 },
+      { text: "تِلْمِيذَةٌ", correct: 3 },
+      { text: "مَنْ", correct: 4 },
+      { text: "هَؤُلاَءِ؟", correct: 5 },
+      { text: "تِلْمِيذَاتٌ", correct: 6 }
+    ],
+    correctSentence: "مَنْ هَذِهِ؟ - تِلْمِيذَةٌ. مَنْ هَؤُلاَءِ؟ - تِلْمِيذَاتٌ.",
+    translation: "Кто это? - Ученица. Кто это? - Ученицы."
+  },
+  {
+    words: [
+      { text: "هُوَ", correct: 1 },
+      { text: "مُعَلِّمٌ", correct: 2 },
+      { text: "هُمْ", correct: 3 },
+      { text: "مُعَلِّمُونَ", correct: 4 }
+    ],
+    correctSentence: "هُوَ مُعَلِّمٌ. هُمْ مُعَلِّمُونَ.",
+    translation: "Он учитель. Они учителя."
+  },
+  {
+    words: [
+      { text: "اَنْتَ", correct: 1 },
+      { text: "تِلْمِيذٌ", correct: 2 },
+      { text: "اَنْتُمْ", correct: 3 },
+      { text: "تَلاَمِيذُ", correct: 4 }
+    ],
+    correctSentence: "اَنْتَ تِلْمِيذٌ. اَنْتُمْ تَلاَمِيذُ.",
+    translation: "Ты ученик. Вы ученики."
+  },
+  {
+    words: [
+      { text: "هِىَ", correct: 1 },
+      { text: "تِلْمِيذَةٌ", correct: 2 },
+      { text: "هُنَّ", correct: 3 },
+      { text: "تِلْمِيذَاتٌ", correct: 4 }
+    ],
+    correctSentence: "هِىَ تِلْمِيذَةٌ. هُنَّ تِلْمِيذَاتٌ.",
+    translation: "Она ученица. Они ученицы."
+  },
+  {
+    words: [
+      { text: "اَنَا", correct: 1 },
+      { text: "مُعَلِّمَةٌ", correct: 2 },
+      { text: "نَحْنُ", correct: 3 },
+      { text: "مُعَلِّمَاتٌ", correct: 4 }
+    ],
+    correctSentence: "اَنَا مُعَلِّمَةٌ. نَحْنُ مُعَلِّمَاتٌ.",
+    translation: "Я учительница. Мы учительницы."
+  },
+  {
+    words: [
+      { text: "هَذَا", correct: 1 },
+      { text: "الرَّجُلُ", correct: 2 },
+      { text: "مُعَلِّمٌ", correct: 3 },
+      { text: "هَؤُلاَءِ", correct: 4 },
+      { text: "الرِّجَالُ", correct: 5 },
+      { text: "مُعَلِّمُونَ", correct: 6 }
+    ],
+    correctSentence: "هَذَا الرَّجُلُ مُعَلِّمٌ. هَؤُلاَءِ الرِّجَالُ مُعَلِّمُونَ.",
+    translation: "Этот мужчина учитель. Эти мужчины учителя."
+  },
+  {
+    words: [
+      { text: "هَذِهِ", correct: 1 },
+      { text: "الْمَرْأَةُ", correct: 2 },
+      { text: "مُعَلِّمَةٌ", correct: 3 },
+      { text: "هَؤُلاَءِ", correct: 4 },
+      { text: "النِّسَاءُ", correct: 5 },
+      { text: "مُعَلِّمَاتٌ", correct: 6 }
+    ],
+    correctSentence: "هَذِهِ الْمَرْأَةُ مُعَلِّمَةٌ. هَؤُلاَءِ النِّسَاءُ مُعَلِّمَاتٌ.",
+    translation: "Эта женщина учительница. Эти женщины учительницы."
+  },
+  {
+    words: [
+      { text: "مَنْ", correct: 1 },
+      { text: "هُوَ؟", correct: 2 },
+      { text: "مَنْ", correct: 3 },
+      { text: "هِىَ؟", correct: 4 }
+    ],
+    correctSentence: "مَنْ هُوَ؟ مَنْ هِىَ؟",
+    translation: "Кто он? Кто она?"
+  },
+  {
+    words: [
+      { text: "مَنْ", correct: 1 },
+      { text: "اَنْتَ؟", correct: 2 },
+      { text: "مَنْ", correct: 3 },
+      { text: "اَنْتُمْ؟", correct: 4 }
+    ],
+    correctSentence: "مَنْ اَنْتَ؟ مَنْ اَنْتُمْ؟",
+    translation: "Кто ты? Кто вы?"
+  },
+  {
+    words: [
+      { text: "مَنْ", correct: 1 },
+      { text: "هُمْ؟", correct: 2 }
+    ],
+    correctSentence: "مَنْ هُمْ؟",
+    translation: "Кто они?"
+  }
     ];
 
     let currentTest = 0;
