@@ -8,23 +8,14 @@ Madalqiroat1
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>10 Тестов на Составление Предложений</title>
   <style>
-    /* стили — без изменений */
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: Arial, sans-serif; background: #f0f0f0; padding: 10px; }
     .test-container { max-width: 600px; margin: 0 auto 30px; background: white; padding: 15px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); display: none; }
     .test-container.active { display: block; }
-    .words-box, .sentence-box { background: #fff; border: 2px dashed #ccc; border-radius: 10px; padding: 15px; margin-bottom: 15px; min-height: 80px; display: flex; flex-wrap: wrap; gap: 8px; flex-direction: row-reverse; /* вот эта строчка добавлена */ }
+    .words-box, .sentence-box { background: #fff; border: 2px dashed #ccc; border-radius: 10px; padding: 15px; margin-bottom: 15px; min-height: 80px; display: flex; flex-wrap: wrap; gap: 8px; flex-direction: row-reverse; }
     .sentence-box { background: #e3f2fd; border: 2px solid #2196F3; }
-    .word {
-  background: #4CAF50;
-  color: white;
-  padding: 8px 12px;
-  border-radius: 15px;
-  cursor: pointer;
-  user-select: none;
-  transition: all 0.2s;
-  font-size: 20px; /* ⬅️ Добавлено */
-}
+    .word { background: #4CAF50; color: white; padding: 8px 12px; border-radius: 15px; cursor: pointer; user-select: none; transition: all 0.2s; font-size: 20px; }
+    .readonly-word { background: #888 !important; cursor: default !important; }
     .check-btn { background: #2196F3; color: white; border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer; margin: 5px 0; }
     .next-btn { background: #9C27B0; display: none; }
     .result { padding: 10px; font-weight: bold; text-align: center; }
@@ -32,19 +23,19 @@ Madalqiroat1
     .incorrect { color: #e74c3c; }
     .progress { text-align: center; margin-bottom: 20px; font-size: 18px; }
     .name-input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 10px; font-size: 16px; }
-.telegram-btn {
-  display: inline-block;
-  background: #2196F3;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 20px;
-  text-decoration: none;
-  font-size: 16px;
-  cursor: pointer;
-  margin-top: 10px;
-}  
-</style>
+    .telegram-btn {
+      display: inline-block;
+      background: #2196F3;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+  </style>
 </head>
 <body>
   <div class="progress">Тест 1 из 10</div>
@@ -54,33 +45,63 @@ Madalqiroat1
     const tests = [
       {
         words: [
-          { text: "Собака", correct: 1 },
-          { text: "весело", correct: 3 },
-          { text: "бегает", correct: 2 },
-          { text: "по парку", correct: 4 }
+          { text: "هُوَ", correct: 1 },
+          { text: "كَبِيرٌ", correct: 2 },
+          { text: "هُمْ", correct: 3 },
+          { text: "كِبَارٌ", correct: 4 }
         ],
-        correctSentence: "Собака бегает весело по парку",
-        translation: "The dog runs happily in the park The dog runs happily in the park"
+        correctSentence: "هُوَ كَبِيرٌ هُمْ كِبَارٌ",
+        translation: "He is big. They are big."
       },
       {
         words: [
-          { text: "Мы", correct: 1 },
-          { text: "завтра", correct: 3 },
-          { text: "в кино", correct: 4 },
-          { text: "идем", correct: 2 }
+          { text: "أَنْتَ", correct: 1 },
+          { text: "صَغِيرٌ", correct: 2 },
+          { text: "اَنْتُمْ", correct: 3 },
+          { text: "صِغَارٌ", correct: 4 }
         ],
-        correctSentence: "Мы идем завтра в кино",
-        translation: "We are going to the cinema tomorrow"
+        correctSentence: "أَنْتَ صَغِيرٌ اَنْتُمْ صِغَارٌ",
+        translation: "You are small. You (plural) are small."
       },
       {
         words: [
-          { text: "Солнце", correct: 1 },
-          { text: "ярко", correct: 2 },
-          { text: "светит", correct: 3 },
-          { text: "на небе", correct: 4 }
+          { text: "اَنَا", correct: 1 },
+          { text: "كَبِيرٌ", correct: 2 },
+          { text: "نَحْنُ", correct: 3 },
+          { text: "كِبَارٌ", correct: 4 }
         ],
-        correctSentence: "Солнце ярко светит на небе",
-        translation: "The sun shines brightly in the sky"
+        correctSentence: "اَنَا كَبِيرٌ نَحْنُ كِبَارٌ",
+        translation: "I am big. We are big."
+      },
+      {
+        words: [
+          { text: "هُوَ", correct: 1 },
+          { text: "صَغِيرٌ", correct: 2 },
+          { text: "هُمْ", correct: 3 },
+          { text: "صِغَارٌ", correct: 4 }
+        ],
+        correctSentence: "هُوَ صَغِيرٌ هُمْ صِغَارٌ",
+        translation: "He is small. They are small."
+      },
+      {
+        words: [
+          { text: "اَنْتَ", correct: 1 },
+          { text: "كَبِيرٌ", correct: 2 },
+          { text: "اَنْتُمْ", correct: 3 },
+          { text: "كِبَارٌ", correct: 4 }
+        ],
+        correctSentence: "اَنْتَ كَبِيرٌ  اَنْتُمْ كِبَارٌ",
+        translation: "You are big. You (plural) are big."
+      },
+      {
+        words: [
+          { text: "اَنَا", correct: 1 },
+          { text: "صَغِيرٌ", correct: 2 },
+          { text: "نَحْنُ", correct: 3 },
+          { text: "صِغَارٌ", correct: 4 }
+        ],
+        correctSentence: "اَنَا صَغِيرٌ نَحْنُ صِغَارٌ",
+        translation: "I am small. We are small."
       }
     ];
 
@@ -97,9 +118,10 @@ Madalqiroat1
       container.innerHTML = '';
 
       const test = tests[index];
+
       const testHTML = `
         <div class="test-container active">
-          <div style="margin-bottom: 10px; font-weight: bold;">Перевод: ${test.translation}</div>
+          <div class="sentence-box" id="answerArea"></div>
           <div class="sentence-box" id="sentenceArea"></div>
           <div class="words-box" id="wordsBox">
             ${test.words.map(word => `
@@ -113,6 +135,15 @@ Madalqiroat1
       `;
       container.innerHTML = testHTML;
 
+      // Добавление слов из перевода
+      const answerArea = document.getElementById('answerArea');
+      test.translation.split(" ").forEach(word => {
+        const span = document.createElement('div');
+        span.className = 'word readonly-word';
+        span.textContent = word;
+        answerArea.appendChild(span);
+      });
+
       const wordsBox = document.getElementById('wordsBox');
       for (let i = wordsBox.children.length; i >= 0; i--) {
         wordsBox.appendChild(wordsBox.children[Math.random() * i | 0]);
@@ -121,6 +152,7 @@ Madalqiroat1
 
     function initWordClick() {
       document.querySelectorAll('.word').forEach(word => {
+        if (word.classList.contains('readonly-word')) return;
         word.addEventListener('click', () => {
           const sentenceBox = document.getElementById('sentenceArea');
           const wordsBox = document.getElementById('wordsBox');
@@ -135,7 +167,7 @@ Madalqiroat1
 
     function checkTest() {
       const test = tests[currentTest];
-      const words = [...document.querySelectorAll('.sentence-box .word')];
+      const words = [...document.querySelectorAll('.sentence-box#sentenceArea .word')];
 
       const isCorrect = words.length === test.words.length &&
         words.every((word, index) =>
@@ -145,8 +177,8 @@ Madalqiroat1
       const result = document.getElementById('result');
       result.textContent = isCorrect ?
         `Правильно! ✔️ "${test.correctSentence}"` :
-        `Неправильно! ❌ Попробуйте еще раз`;
-      result.className = `result ${isCorrect ? 'correct' : 'incorrect'}`;
+        'Неправильно! ❌ Попробуйте еще раз';
+      result.className = isCorrect ? 'result correct' : 'result incorrect';
 
       if (isCorrect) {
         document.querySelector('.next-btn').style.display = 'inline-block';
@@ -172,8 +204,12 @@ Madalqiroat1
     }
 
     function sendToMessenger() {
-  console.log("Функция sendToMessenger вызвана");
-  const name = document.getElementById('username').value || "Аноним";
+  const name = document.getElementById('username').value.trim();
+
+  if (!name) {
+    alert("Пожалуйста, введите ваше имя перед отправкой.");
+    return;
+  }
 
   const payload = {
     username: name,
@@ -189,17 +225,17 @@ Madalqiroat1
       'Content-Type': 'application/json'
     }
   }).then(() => {
-    document.getElementById('testsContainer').innerHTML = `
-      <div class="test-container active">
+    document.getElementById('testsContainer').innerHTML = 
+      `<div class="test-container active">
         <div class="result correct">Данные успешно отправлены!</div>
-        <button class="telegram-btn" onclick="location.reload()">Начать заново</button>
-      </div>
-    `;
+        <a href="https://sites.google.com/view/mabdalqiroat" class="telegram-btn">Начать заново</a>
+      </div>`;
   }).catch(error => {
     console.error("Ошибка при отправке:", error);
     alert("Ошибка при отправке: " + error);
   });
 }
+
     window.onload = init;
   </script>
 </body>
