@@ -35,6 +35,12 @@ Madalqiroat1
       cursor: pointer;
       margin-top: 10px;
     }
+
+    /* Исправление: текст в первом окошке (английский) слева направо */
+    #answerArea {
+      direction: ltr;
+      flex-direction: row !important;
+    }
   </style>
 </head>
 <body>
@@ -43,122 +49,66 @@ Madalqiroat1
 
   <script>
     const tests = [
-  {
-    words: [
-      { text: "مَنْ", correct: 1 },
-      { text: "هَذَا؟", correct: 2 },
-      { text: "مُعَلِّمٌ", correct: 3 },
-      { text: "مَنْ", correct: 4 },
-      { text: "هَؤُلاَءِ؟", correct: 5 },
-      { text: "مُعَلِّمُونَ", correct: 6 }
-    ],
-    correctSentence: "مَنْ هَذَا؟ - مُعَلِّمٌ. مَنْ هَؤُلاَءِ؟ - مُعَلِّمُونَ.",
-    translation: "Кто это? - Учитель. Кто это? - Учителя."
-  },
-  {
-    words: [
-      { text: "مَنْ", correct: 1 },
-      { text: "هَذِهِ؟", correct: 2 },
-      { text: "تِلْمِيذَةٌ", correct: 3 },
-      { text: "مَنْ", correct: 4 },
-      { text: "هَؤُلاَءِ؟", correct: 5 },
-      { text: "تِلْمِيذَاتٌ", correct: 6 }
-    ],
-    correctSentence: "مَنْ هَذِهِ؟ - تِلْمِيذَةٌ. مَنْ هَؤُلاَءِ؟ - تِلْمِيذَاتٌ.",
-    translation: "Кто это? - Ученица. Кто это? - Ученицы."
-  },
-  {
-    words: [
+      {
+        words: [
       { text: "هُوَ", correct: 1 },
-      { text: "مُعَلِّمٌ", correct: 2 },
+      { text: "كَبِيرٌ", correct: 2 },
       { text: "هُمْ", correct: 3 },
-      { text: "مُعَلِّمُونَ", correct: 4 }
+      { text: "كِبَارٌ", correct: 4 }
     ],
-    correctSentence: "هُوَ مُعَلِّمٌ. هُمْ مُعَلِّمُونَ.",
-    translation: "Он учитель. Они учителя."
+    correctSentence: "هُوَ كَبِيرٌ. هُمْ كِبَارٌ.",
+    translation: "Он большой. Они большие."
   },
   {
     words: [
-      { text: "اَنْتَ", correct: 1 },
-      { text: "تِلْمِيذٌ", correct: 2 },
+      { text: "أَنْتَ", correct: 1 },
+      { text: "صَغِيرٌ", correct: 2 },
       { text: "اَنْتُمْ", correct: 3 },
-      { text: "تَلاَمِيذُ", correct: 4 }
+      { text: "صِغَارٌ", correct: 4 }
     ],
-    correctSentence: "اَنْتَ تِلْمِيذٌ. اَنْتُمْ تَلاَمِيذُ.",
-    translation: "Ты ученик. Вы ученики."
-  },
-  {
-    words: [
-      { text: "هِىَ", correct: 1 },
-      { text: "تِلْمِيذَةٌ", correct: 2 },
-      { text: "هُنَّ", correct: 3 },
-      { text: "تِلْمِيذَاتٌ", correct: 4 }
-    ],
-    correctSentence: "هِىَ تِلْمِيذَةٌ. هُنَّ تِلْمِيذَاتٌ.",
-    translation: "Она ученица. Они ученицы."
+    correctSentence: "أَنْتَ صَغِيرٌ. اَنْتُمْ صِغَارٌ.",
+    translation: "Ты маленький. Вы маленькие."
   },
   {
     words: [
       { text: "اَنَا", correct: 1 },
-      { text: "مُعَلِّمَةٌ", correct: 2 },
+      { text: "كَبِيرٌ", correct: 2 },
       { text: "نَحْنُ", correct: 3 },
-      { text: "مُعَلِّمَاتٌ", correct: 4 }
+      { text: "كِبَارٌ", correct: 4 }
     ],
-    correctSentence: "اَنَا مُعَلِّمَةٌ. نَحْنُ مُعَلِّمَاتٌ.",
-    translation: "Я учительница. Мы учительницы."
+    correctSentence: "اَنَا كَبِيرٌ. نَحْنُ كِبَارٌ.",
+    translation: "Я большой. Мы большие."
   },
   {
     words: [
-      { text: "هَذَا", correct: 1 },
-      { text: "الرَّجُلُ", correct: 2 },
-      { text: "مُعَلِّمٌ", correct: 3 },
-      { text: "هَؤُلاَءِ", correct: 4 },
-      { text: "الرِّجَالُ", correct: 5 },
-      { text: "مُعَلِّمُونَ", correct: 6 }
+      { text: "هُوَ", correct: 1 },
+      { text: "صَغِيرٌ", correct: 2 },
+      { text: "هُمْ", correct: 3 },
+      { text: "صِغَارٌ", correct: 4 }
     ],
-    correctSentence: "هَذَا الرَّجُلُ مُعَلِّمٌ. هَؤُلاَءِ الرِّجَالُ مُعَلِّمُونَ.",
-    translation: "Этот мужчина учитель. Эти мужчины учителя."
+    correctSentence: "هُوَ صَغِيرٌ. هُمْ صِغَارٌ.",
+    translation: "Он маленький. Они маленькие."
   },
   {
     words: [
-      { text: "هَذِهِ", correct: 1 },
-      { text: "الْمَرْأَةُ", correct: 2 },
-      { text: "مُعَلِّمَةٌ", correct: 3 },
-      { text: "هَؤُلاَءِ", correct: 4 },
-      { text: "النِّسَاءُ", correct: 5 },
-      { text: "مُعَلِّمَاتٌ", correct: 6 }
+      { text: "اَنْتَ", correct: 1 },
+      { text: "كَبِيرٌ", correct: 2 },
+      { text: "اَنْتُمْ", correct: 3 },
+      { text: "كِبَارٌ", correct: 4 }
     ],
-    correctSentence: "هَذِهِ الْمَرْأَةُ مُعَلِّمَةٌ. هَؤُلاَءِ النِّسَاءُ مُعَلِّمَاتٌ.",
-    translation: "Эта женщина учительница. Эти женщины учительницы."
+    correctSentence: "اَنْتَ كَبِيرٌ.  اَنْتُمْ كِبَارٌ.",
+    translation: "Ты большой. Вы большие."
   },
   {
     words: [
-      { text: "مَنْ", correct: 1 },
-      { text: "هُوَ؟", correct: 2 },
-      { text: "مَنْ", correct: 3 },
-      { text: "هِىَ؟", correct: 4 }
+      { text: "اَنَا", correct: 1 },
+      { text: "صَغِيرٌ", correct: 2 },
+      { text: "نَحْنُ", correct: 3 },
+      { text: "صِغَارٌ", correct: 4 }
     ],
-    correctSentence: "مَنْ هُوَ؟ مَنْ هِىَ؟",
-    translation: "Кто он? Кто она?"
-  },
-  {
-    words: [
-      { text: "مَنْ", correct: 1 },
-      { text: "اَنْتَ؟", correct: 2 },
-      { text: "مَنْ", correct: 3 },
-      { text: "اَنْتُمْ؟", correct: 4 }
-    ],
-    correctSentence: "مَنْ اَنْتَ؟ مَنْ اَنْتُمْ؟",
-    translation: "Кто ты? Кто вы?"
-  },
-  {
-    words: [
-      { text: "مَنْ", correct: 1 },
-      { text: "هُمْ؟", correct: 2 }
-    ],
-    correctSentence: "مَنْ هُمْ؟",
-    translation: "Кто они?"
-  }
+    correctSentence: "اَنَا صَغِيرٌ. نَحْنُ صِغَارٌ.",
+    translation: "Я маленький. Мы маленькие."
+      }
     ];
 
     let currentTest = 0;
@@ -175,23 +125,21 @@ Madalqiroat1
 
       const test = tests[index];
 
-      const testHTML = `
-        <div class="test-container active">
+      const testHTML =
+        `<div class="test-container active">
           <div class="sentence-box" id="answerArea"></div>
           <div class="sentence-box" id="sentenceArea"></div>
           <div class="words-box" id="wordsBox">
-            ${test.words.map(word => `
-              <div class="word" data-correct="${word.correct}">${word.text}</div>
-            `).join('')}
+            ${test.words.map(word =>
+              `<div class="word" data-correct="${word.correct}">${word.text}</div>`
+            ).join('')}
           </div>
           <button class="check-btn" onclick="checkTest()">Проверить</button>
           <button class="check-btn next-btn" onclick="nextTest()">Следующий тест →</button>
           <div class="result" id="result"></div>
-        </div>
-      `;
+        </div>`;
       container.innerHTML = testHTML;
 
-      // Добавление слов из перевода
       const answerArea = document.getElementById('answerArea');
       test.translation.split(" ").forEach(word => {
         const span = document.createElement('div');
@@ -248,49 +196,48 @@ Madalqiroat1
         createTest(currentTest);
         initWordClick();
       } else {
-        document.getElementById('testsContainer').innerHTML = `
-          <div class="test-container active">
+        document.getElementById('testsContainer').innerHTML =
+          `<div class="test-container active">
             <div class="result correct">Все тесты пройдены! Молодец!</div>
             <input class="name-input" id="username" placeholder="Введите ваше имя">
             <button class="check-btn" onclick="sendToMessenger()">Отправить в мессенджер</button>
-          </div>
-        `;
+          </div>`;
         document.querySelector('.progress').style.display = 'none';
       }
     }
 
     function sendToMessenger() {
-  const name = document.getElementById('username').value.trim();
+      const name = document.getElementById('username').value.trim();
 
-  if (!name) {
-    alert("Пожалуйста, введите ваше имя перед отправкой.");
-    return;
-  }
+      if (!name) {
+        alert("Пожалуйста, введите ваше имя перед отправкой.");
+        return;
+      }
 
-  const payload = {
-    username: name,
-    text: `Пользователь прошёл тест!\nИмя: ${name}`,
-    channel: 'channel3'
-  };
+      const payload = {
+        username: name,
+        text: `Пользователь прошёл тест!\nИмя: ${name}`,
+        channel: 'channel3'
+      };
 
-  fetch('https://script.google.com/macros/s/AKfycbxKtfqb4Tx0gGeDFnTtH3yA7ZoU0N_yHz6qTW066T_r9rGHsVuuYrwbhT4gkJ2B-yXK/exec', {
-    method: 'POST',
-    mode: 'no-cors',
-    body: JSON.stringify(payload),
-    headers: {
-      'Content-Type': 'application/json'
+      fetch('https://script.google.com/macros/s/AKfycbxKtfqb4Tx0gGeDFnTtH3yA7ZoU0N_yHz6qTW066T_r9rGHsVuuYrwbhT4gkJ2B-yXK/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        body: JSON.stringify(payload),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }).then(() => {
+        document.getElementById('testsContainer').innerHTML =
+          `<div class="test-container active">
+            <div class="result correct">Данные успешно отправлены!</div>
+            <a href="https://sites.google.com/view/mabdalqiroat" class="telegram-btn">Начать заново</a>
+          </div>`;
+      }).catch(error => {
+        console.error("Ошибка при отправке:", error);
+        alert("Ошибка при отправке: " + error);
+      });
     }
-  }).then(() => {
-    document.getElementById('testsContainer').innerHTML = 
-      `<div class="test-container active">
-        <div class="result correct">Данные успешно отправлены!</div>
-        <a href="https://sites.google.com/view/mabdalqiroat" class="telegram-btn">Начать заново</a>
-      </div>`;
-  }).catch(error => {
-    console.error("Ошибка при отправке:", error);
-    alert("Ошибка при отправке: " + error);
-  });
-}
 
     window.onload = init;
   </script>
