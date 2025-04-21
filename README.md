@@ -253,7 +253,7 @@ Madalqiroat1
         document.getElementById('testsContainer').innerHTML =
           `<div class="test-container active">
             <div class="result correct">Данные успешно отправлены!</div>
-            <a href="https://sites.google.com/view/mabdalqiroat" class="telegram-btn">Начать заново</a>
+            <a href="https://darsurok.github.io/madalqiroat" class="telegram-btn">Начать заново</a>
           </div>`;
       }).catch(error => {
         console.error("Ошибка при отправке:", error);
