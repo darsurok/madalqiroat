@@ -36,7 +36,6 @@ Madalqiroat1
       margin-top: 10px;
     }
 
-    /* Исправление: текст в первом окошке (английский) слева направо */
     #answerArea {
       direction: ltr;
       flex-direction: row !important;
@@ -49,8 +48,30 @@ Madalqiroat1
 
   <script>
     const tests = [
-      {
-        words: [
+    {
+   words: [
+    { text: "هُوَ", correct: 1 },
+    { text: "هُمْ", correct: 2 },
+    { text: "أَنْتَ", correct: 3 },
+    { text: "أَنْتُمْ", correct: 4 }
+  ],
+  correctSentence: "هُوَ هُمْ أَنْتَ أَنْتُمْ",
+  translation: "Он, они, ты, вы."
+},
+{
+  words: [
+    { text: "أَنَا", correct: 1 },
+    { text: "نَحْنُ", correct: 2 },
+    { text: "كَبِيرٌ", correct: 3 },
+    { text: "كِبَارٌ", correct: 4 },
+    { text: "صَغِيرٌ", correct: 5 },
+    { text: "صِغَارٌ", correct: 6 }
+  ],
+   correctSentence:  "أَنَا نَحْنُ كَبِيرٌ كِبَارٌ صَغِيرٌ صِغَارٌ",
+   translation: "Я, мы, большой, большие, маленький, маленькие."
+  },
+  {
+     words: [
       { text: "هُوَ", correct: 1 },
       { text: "كَبِيرٌ", correct: 2 },
       { text: "هُمْ", correct: 3 },
@@ -165,6 +186,7 @@ Madalqiroat1
           } else {
             wordsBox.appendChild(word);
           }
+          updateTranslationVisibility();
         });
       });
     }
@@ -236,6 +258,25 @@ Madalqiroat1
       }).catch(error => {
         console.error("Ошибка при отправке:", error);
         alert("Ошибка при отправке: " + error);
+      });
+    }
+
+    function updateTranslationVisibility() {
+      const translationWords = Array.from(document.querySelectorAll('#answerArea .word.readonly-word'));
+      const selectedWords = Array.from(document.querySelectorAll('#sentenceArea .word')).map(w => w.textContent.trim());
+      const test = tests[currentTest];
+      const translationMap = {};
+
+      const arabicParts = test.correctSentence.split(/[\s.]+/).filter(Boolean);
+      const russianParts = test.translation.split(" ");
+
+      for (let i = 0; i < arabicParts.length; i++) {
+        translationMap[arabicParts[i]] = russianParts[i];
+      }
+
+      translationWords.forEach(tWord => {
+        const shouldHide = selectedWords.some(arWord => translationMap[arWord] === tWord.textContent.trim());
+        tWord.style.visibility = shouldHide ? 'hidden' : 'visible';
       });
     }
 
