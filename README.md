@@ -242,7 +242,7 @@ Madalqiroat1
         channel: 'channel3'
       };
 
-      fetch('https://script.google.com/macros/s/AKfycbxKtfqb4Tx0gGeDFnTtH3yA7ZoU0N_yHz6qTW066T_r9rGHsVuuYrwbhT4gkJ2B-yXK/exec', {
+      fetch('https://script.google.com/macros/s/AKfycbwObzQwnWlJWsWeHMI2ZDGR0E1kQGbIEh2j8sUC6EnFL2Z_bwBiwV1gQuBx1zG920Dh/exec', {
         method: 'POST',
         mode: 'no-cors',
         body: JSON.stringify(payload),
